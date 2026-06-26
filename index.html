@@ -641,7 +641,9 @@ const bgMusic = document.getElementById("bgMusic");
 musicBtn.addEventListener("click", async () => {
     if (bgMusic.paused) {
         try {
-            await bgMusic.play();
+            await bgMusic.play().catch(err => {
+    alert("Couldn't play music: " + err.message);
+});
             musicBtn.innerHTML = "🎶";
             musicBtn.classList.add("playing");
         } catch (e) {
