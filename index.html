@@ -610,24 +610,18 @@ updateCountdown();
 setInterval(updateCountdown, 1000);
 
 // ---------- Music toggle ----------
-  <script>
+const btn = document.getElementById('musicBtn');
 const audio = document.getElementById('bgMusic');
-
-function startMusic() {
-    audio.play().catch(() => {});
-    document.removeEventListener('click', startMusic);
-    document.removeEventListener('touchstart', startMusic);
-}
-
-document.addEventListener('click', startMusic);
-document.addEventListener('touchstart', startMusic);
-
-
+btn.addEventListener('click', () => {
+  if(audio.paused){
+    audio.play().catch(()=>{});
+    btn.classList.remove('paused');
+  } else {
+    audio.pause();
+    btn.classList.add('paused');
+  }
+});
 </script>
-  <audio id="bgMusic" loop>
-    <source src="music.mp3" type="audio/mpeg">
-</audio>
- 
 
 </body>
 </html>
