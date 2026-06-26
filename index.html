@@ -641,13 +641,12 @@ const bgMusic = document.getElementById("bgMusic");
 musicBtn.addEventListener("click", async () => {
     if (bgMusic.paused) {
         try {
-            await bgMusic.play().catch(err => {
-    alert("Couldn't play music: " + err.message);
-});
+            await bgMusic.play();
             musicBtn.innerHTML = "🎶";
             musicBtn.classList.add("playing");
-        } catch (e) {
-            console.error(e);
+        } catch (err) {
+            alert("Couldn't play music: " + err.message);
+            console.error(err);
         }
     } else {
         bgMusic.pause();
