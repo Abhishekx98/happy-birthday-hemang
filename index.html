@@ -385,8 +385,8 @@
 @keyframes fadeIn{to{opacity:1}}
   .music-btn{
     position:fixed;
-    top:20px;
-    right:20px;
+    top:30px;
+    right:30px;
     width:55px;
     height:55px;
     border:none;
@@ -559,13 +559,8 @@ Remember that legendary day? The exhibits and the boat ride went smoothly, but i
   no cap, made with <span class="heart">♥</span> for the cheeks holder himself
 </footer>
 
-<button class="music-toggle paused" id="musicBtn" aria-label="Play background music">
-  <span class="bars"><span></span><span></span><span></span></span>
-</button>
-<audio id="bgMusic" loop>
-  <!-- Replace this src with a link to an actual song file if you have one -->
-  <source src="" type="audio/mpeg">
-</audio>
+
+
 
 <script>
 // ---------- Gallery fade-in on scroll ----------
@@ -647,7 +642,7 @@ musicBtn.addEventListener("click", async () => {
     if (bgMusic.paused) {
         try {
             await bgMusic.play();
-            musicBtn.innerHTML = "⏸";
+            musicBtn.innerHTML = "🎶";
             musicBtn.classList.add("playing");
         } catch (e) {
             console.error(e);
