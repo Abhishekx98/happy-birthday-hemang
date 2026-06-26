@@ -558,6 +558,9 @@ Remember that legendary day? The exhibits and the boat ride went smoothly, but i
 </section>
   no cap, made with <span class="heart">♥</span> for the cheeks holder himself
 </footer>
+  <audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
 
 
 
@@ -635,30 +638,31 @@ updateCountdown();
 setInterval(updateCountdown, 1000);
 
 // ---------- Music toggle ----------
-  const musicBtn = document.getElementById("musicBtn");
-const bgMusic = document.getElementById("bgMusic");
+ window.addEventListener("DOMContentLoaded", () => {
 
-musicBtn.addEventListener("click", async () => {
-    if (bgMusic.paused) {
-        try {
-            await bgMusic.play();
-            musicBtn.innerHTML = "🎶";
-            musicBtn.classList.add("playing");
-        } catch (err) {
-            alert("Couldn't play music: " + err.message);
-            console.error(err);
+    const musicBtn = document.getElementById("musicBtn");
+    const bgMusic = document.getElementById("bgMusic");
+
+    musicBtn.addEventListener("click", async () => {
+        if (bgMusic.paused) {
+            try {
+                await bgMusic.play();
+                musicBtn.innerHTML = "🎶";
+                musicBtn.classList.add("playing");
+            } catch (err) {
+                console.error(err);
+            }
+        } else {
+            bgMusic.pause();
+            musicBtn.innerHTML = "🎵";
+            musicBtn.classList.remove("playing");
         }
-    } else {
-        bgMusic.pause();
-        musicBtn.innerHTML = "🎵";
-        musicBtn.classList.remove("playing");
-    }
+    });
+
 });
 
 </script> 
-  <audio id="bgMusic" loop>
-    <source src="music.mp3" type="audio/mpeg">
-</audio>
+ 
 
 </body>
 </html>
